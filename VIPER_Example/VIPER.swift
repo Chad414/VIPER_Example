@@ -10,6 +10,7 @@ import UIKit
 
 protocol ViewProtocol {
     var presenter: PresenterProtocol? {get set}
+
 }
 
 protocol InteractorProtocol {

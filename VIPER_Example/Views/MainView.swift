@@ -10,11 +10,26 @@ import UIKit
 class MainView: UIViewController, ViewProtocol {
     var presenter: PresenterProtocol?
     
+    @IBOutlet weak var redSlider: UISlider!
+    @IBOutlet weak var greenSlider: UISlider!
+    @IBOutlet weak var blueSlider: UISlider!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set sliders to max value for default white background
+        redSlider.value = 255
+        greenSlider.value = 255
+        blueSlider.value = 255
+    
     }
-
-
+    
+    @IBAction func sliderChanged(_ sender: UISlider) {
+        let presenter = presenter as! MainPresenter
+        presenter.generateColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value))
+    }
+    
     /*
     // MARK: - Navigation
 
