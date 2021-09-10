@@ -13,7 +13,7 @@ class MainPresenter: PresenterProtocol {
     var interactor: InteractorProtocol?
     var router: RouterProtocol?
     
-    func generateColor(red: CGFloat, green: CGFloat, blue: CGFloat) {
+    func changeViewBackground(red: CGFloat, green: CGFloat, blue: CGFloat) {
         let color = UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1.0)
         let viewController = view as! UIViewController
         viewController.view.backgroundColor = color

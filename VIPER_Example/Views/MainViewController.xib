@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainView" customModule="VIPER_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="blueSlider" destination="ID2-kY-gbM" id="9BS-SC-2Ks"/>
+                <outlet property="greenSlider" destination="gic-KZ-9zT" id="MUj-fi-EiS"/>
+                <outlet property="redSlider" destination="8pj-47-IP6" id="Joc-5J-Nxd"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8pj-47-IP6" userLabel="Red Slider" customClass="ColorSlider" customModule="VIPER_Example" customModuleProvider="target">
+                    <rect key="frame" x="87" y="85.5" width="240" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="3As-fu-ijZ"/>
+                        <constraint firstAttribute="height" constant="80" id="xoJ-Gq-Adw"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gic-KZ-9zT" userLabel="Green Slider" customClass="ColorSlider" customModule="VIPER_Example" customModuleProvider="target">
+                    <rect key="frame" x="87" y="165.5" width="240" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="Hji-a8-Mzb"/>
+                        <constraint firstAttribute="width" constant="240" id="w5v-7f-w49"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ID2-kY-gbM" userLabel="Blue Slider" customClass="ColorSlider" customModule="VIPER_Example" customModuleProvider="target">
+                    <rect key="frame" x="87" y="245.5" width="240" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="Ekb-Hy-eP2"/>
+                        <constraint firstAttribute="height" constant="80" id="hzM-Ew-xKr"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdb-aD-SMd">
+                    <rect key="frame" x="121" y="60" width="172" height="25.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Hdb-aD-SMd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="0eK-e1-1NN"/>
+                <constraint firstItem="Hdb-aD-SMd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1dM-UT-J7z"/>
+                <constraint firstItem="8pj-47-IP6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EI5-qf-urO"/>
+                <constraint firstItem="gic-KZ-9zT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HnZ-Ah-cud"/>
+                <constraint firstItem="ID2-kY-gbM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="P68-cl-HsE"/>
+                <constraint firstItem="gic-KZ-9zT" firstAttribute="top" secondItem="8pj-47-IP6" secondAttribute="bottom" id="QPY-at-Jjr"/>
+                <constraint firstItem="ID2-kY-gbM" firstAttribute="top" secondItem="gic-KZ-9zT" secondAttribute="bottom" id="jMj-fv-MyD"/>
+                <constraint firstItem="8pj-47-IP6" firstAttribute="top" secondItem="Hdb-aD-SMd" secondAttribute="bottom" id="xAk-mX-fos"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="132"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
