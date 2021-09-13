@@ -29,6 +29,8 @@ class MainInteractor: InteractorProtocol {
                     presenter.updateWeatherView(data: weatherData)
                 } catch let error {
                     print("Error Serializing JSON: \(error)")
+                    let presenter = self.presenter as! MainPresenter
+                    presenter.sendWeatherError()
                 }
                 
             } else {

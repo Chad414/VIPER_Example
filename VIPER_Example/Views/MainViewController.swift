@@ -68,6 +68,13 @@ class MainView: UIViewController, ViewProtocol {
 
         present(ac, animated: true)
     }
+    
+    func errorChangingLocation() {
+        let ac = UIAlertController(title: "Error changing location", message: "Location not found, please try again", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+
+        present(ac, animated: true)
+    }
 
 }
 

@@ -15,8 +15,14 @@ class MainPresenter: PresenterProtocol {
     
     func changeViewBackground(red: CGFloat, green: CGFloat, blue: CGFloat) {
         let color = UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1.0)
+        let invertedColor = UIColor(red: 1.0 - red/255, green: 1.0 - green/255, blue: 1.0 - blue/255, alpha: 1.0)
+        
         let viewController = view as! UIViewController
+        let view = self.view as! MainView
+        
         viewController.view.backgroundColor = color
+        view.weatherView.backgroundColor = invertedColor
+        
     }
     
     func userWantsToChangeLocation() {
@@ -29,9 +35,16 @@ class MainPresenter: PresenterProtocol {
         let interactor = self.interactor as! MainInteractor
         let apiKey = "47e5b267063d9218baba8dd8d1622913"
         
-        let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(location)&appid=\(apiKey)")
+        let urlString = "http://api.openweathermap.org/data/2.5/weather?q=\(location.replacingOccurrences(of: " ", with: "%20"))&appid=\(apiKey)"
         
-        interactor.fetchWeatherData(url: url!)
+        if let url = URL(string: urlString) {
+            if UIApplication.shared.canOpenURL(url as URL) {
+                interactor.fetchWeatherData(url: url as URL)
+                return
+            }
+        }
+        
+        self.sendWeatherError()
     }
     
     func updateWeatherView(data: WeatherEntitiy) {
@@ -52,5 +65,12 @@ class MainPresenter: PresenterProtocol {
             view.weatherView.weatherIcon.image = UIImage(named: "cloud.sun")
         }
         
+    }
+    
+    func sendWeatherError() {
+        DispatchQueue.main.async {
+            let view = self.view as! MainView
+            view.errorChangingLocation()
+        }
     }
 }
