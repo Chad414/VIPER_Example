@@ -13,6 +13,14 @@ class MainView: UIViewController, ViewProtocol {
     @IBOutlet weak var redSlider: ColorSlider!
     @IBOutlet weak var greenSlider: ColorSlider!
     @IBOutlet weak var blueSlider: ColorSlider!
+    @IBOutlet weak var weatherView: WeatherView!
+    
+    var location: String = "Detroit" {
+        didSet {
+            let presenter = self.presenter as! MainPresenter
+            presenter.requestWeatherUpdate(location: self.location)
+        }
+    }
     
     convenience init() {
         self.init(nibName: "MainViewController", bundle: nil)
@@ -34,6 +42,7 @@ class MainView: UIViewController, ViewProtocol {
         redSlider.delegate = self
         greenSlider.delegate = self
         blueSlider.delegate = self
+        weatherView.delegate = self
         
         redSlider.slider.value = 255
         greenSlider.slider.value = 255
@@ -42,6 +51,22 @@ class MainView: UIViewController, ViewProtocol {
         redSlider.label.text = "Red: 255"
         greenSlider.label.text = "Green: 255"
         blueSlider.label.text = "Blue: 255"
+        
+        location = "Detroit"
+    }
+    
+    func promptForLocation() {
+        let ac = UIAlertController(title: "Enter new location", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+            self.location = ac.textFields![0].text!
+            
+        }
+
+        ac.addAction(submitAction)
+
+        present(ac, animated: true)
     }
 
 }
@@ -56,7 +81,16 @@ extension MainView: ColorSliderDelegate {
             blueSlider.label.text = "Blue: \(blueSlider.slider.value)"
         }
         
-        let presenter = self.presenter! as! MainPresenter
+        let presenter = self.presenter as! MainPresenter
         presenter.changeViewBackground(red: CGFloat(redSlider.slider.value), green: CGFloat(greenSlider.slider.value), blue: CGFloat(blueSlider .slider.value))
     }
+}
+
+extension MainView: WeatherViewDelegate {
+    func onLocationButtonPressed(_ view: WeatherView) {
+        let presenter = self.presenter as! MainPresenter
+        
+        presenter.userWantsToChangeLocation()
+    }
+
 }

@@ -14,6 +14,7 @@
                 <outlet property="greenSlider" destination="gic-KZ-9zT" id="MUj-fi-EiS"/>
                 <outlet property="redSlider" destination="8pj-47-IP6" id="Joc-5J-Nxd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weatherView" destination="PIC-9C-Ek1" id="ibQ-e8-ndn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -48,6 +49,13 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PIC-9C-Ek1" userLabel="WeatherView" customClass="WeatherView" customModule="VIPER_Example" customModuleProvider="target">
+                    <rect key="frame" x="-5" y="389.5" width="424" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="424" id="cSv-fE-Q1c"/>
+                        <constraint firstAttribute="height" constant="200" id="l2i-bY-vGx"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -58,6 +66,8 @@
                 <constraint firstItem="gic-KZ-9zT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HnZ-Ah-cud"/>
                 <constraint firstItem="ID2-kY-gbM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="P68-cl-HsE"/>
                 <constraint firstItem="gic-KZ-9zT" firstAttribute="top" secondItem="8pj-47-IP6" secondAttribute="bottom" id="QPY-at-Jjr"/>
+                <constraint firstItem="PIC-9C-Ek1" firstAttribute="top" secondItem="ID2-kY-gbM" secondAttribute="bottom" constant="64" id="Sla-Vm-icz"/>
+                <constraint firstItem="PIC-9C-Ek1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fAf-am-tJD"/>
                 <constraint firstItem="ID2-kY-gbM" firstAttribute="top" secondItem="gic-KZ-9zT" secondAttribute="bottom" id="jMj-fv-MyD"/>
                 <constraint firstItem="8pj-47-IP6" firstAttribute="top" secondItem="Hdb-aD-SMd" secondAttribute="bottom" id="xAk-mX-fos"/>
             </constraints>
