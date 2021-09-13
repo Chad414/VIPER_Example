@@ -21,8 +21,10 @@ class MainPresenter: PresenterProtocol {
         let view = self.view as! MainView
         
         viewController.view.backgroundColor = color
-        view.weatherView.backgroundColor = invertedColor
-        
+        view.weatherView.locationLabel.textColor = invertedColor
+        view.weatherView.tempLabel.textColor = invertedColor
+        view.weatherView.highlowLabel.textColor = invertedColor
+        view.weatherView.locationButton.tintColor = invertedColor
     }
     
     func userWantsToChangeLocation() {
